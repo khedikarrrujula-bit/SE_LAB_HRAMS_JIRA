@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hospital Resource Allocation Management System</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="logo">✚</div><div><strong>HRAMS</strong><small>Hospital Resource Management</small></div></div>
+  <span class="badge">SE • PBL PROJECT</span>
+</header>
+<main class="wrap">
+  <section class="intro">
+    <div><p class="eyebrow">PATIENT SERVICES</p><h1>Patient Registration &amp; Directory</h1>
+    <p class="sub">Register patients, assign priority, and view records in one place.</p></div>
+    <div class="stat"><span id="patientCount">0</span><small>Registered patients</small></div>
+  </section>
+  <div id="message" class="message" role="status" aria-live="polite"></div>
+  <div class="layout">
+    <section class="panel">
+      <div class="panelhead"><div><p class="eyebrow">MODULE 01</p><h2>Register a patient</h2></div><span class="step">01</span></div>
+      <form id="patientForm">
+        <div class="grid two">
+          <label>First name<input name="first_name" required maxlength="50" placeholder="e.g. Rina"></label>
+          <label>Last name<input name="last_name" required maxlength="50" placeholder="e.g. Sharma"></label>
+          <label>Date of birth<input name="dob" type="date" required></label>
+          <label>Contact number<input name="contact" inputmode="numeric" pattern="[0-9]{10}" minlength="10" maxlength="10" required placeholder="10-digit number"></label>
+          <label>Department<select name="department" required><option value="">Choose department</option><option>Cardiology</option><option>Neurology</option><option>General Medicine</option><option>Orthopaedics</option><option>Paediatrics</option><option>Oncology</option></select></label>
+          <label>Priority<select name="priority" required><option value="">Choose priority</option><option>Emergency</option><option>Urgent</option><option>Routine</option></select></label>
+        </div>
+        <button class="primary" type="submit">＋ Register patient</button>
+        <p class="hint">Required fields are validated before saving.</p>
+      </form>
+    </section>
+    <section class="panel listpanel">
+      <div class="panelhead"><div><p class="eyebrow">MODULE 02</p><h2>Registered patients</h2></div><button id="refreshBtn" class="secondary" type="button">↻ Refresh</button></div>
+      <div class="tools"><input id="search" type="search" placeholder="Search name or department…" aria-label="Search patients"><select id="priorityFilter" aria-label="Filter by priority"><option value="">All priorities</option><option>Emergency</option><option>Urgent</option><option>Routine</option></select></div>
+      <div class="tablewrap"><table><thead><tr><th>Patient</th><th>Department</th><th>Priority</th><th>Status</th></tr></thead><tbody id="patientRows"><tr><td colspan="4" class="empty">Loading patient records…</td></tr></tbody></table></div>
+      <p class="hint">Emergency cases appear first. Search and priority filters work on saved records.</p>
+    </section>
+  </div>
+  <section class="footer-note"><strong>Project scope</strong><span>Module 1: Patient Registration &amp; Priority Assignment</span><span>Module 2: Patient List &amp; Priority Display</span></section>
+</main>
+<script src="/app.js"></script>
+</body></html>
